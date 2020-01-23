@@ -4,21 +4,21 @@ import Header from "./components/Header";
 import Movie from "./components/Movie";
 import Search from "./components/Search";
 
-const MOVIE_API_URL = "http://www.omdbapi.com/?apikey=66afde41";
+const MOVIE_API_URL = "http://www.omdbapi.com/?apikey=66afde41&s=iron";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  // useEffect(() => {
-  //   fetch(MOVIE_API_URL)
-  //     .then(response => response.json())
-  //     .then(jsonResponse => {
-  //       setMovies(jsonResponse.Search);
-  //       setLoading(false);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(MOVIE_API_URL)
+      .then(response => response.json())
+      .then(jsonResponse => {
+        setMovies(jsonResponse.Search);
+        setLoading(false);
+      });
+  }, []);
 
   const search = searchValue => {
     setLoading(true);
@@ -44,7 +44,9 @@ function App() {
       <p className="App-intro">Sharing a few of our favorite movies</p>
       <div className="movies">
         {loading && !errorMessage ? (
-          <span>loading...</span>
+          <span style={{ paddingLeft: "10px", fontSize: "large" }}>
+            Loading...
+          </span>
         ) : errorMessage ? (
           <div className="errorMessage">{errorMessage}</div>
         ) : (

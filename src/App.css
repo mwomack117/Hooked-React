@@ -12,3 +12,72 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.App-intro {
+  font-size: large;
+}
+
+/* Custom CSS for movie components */
+* {
+  box-sizing: border-box;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie {
+  max-width: 24%;
+  padding: 5px 30px;
+}
+
+.search {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+input[type="submit"] {
+  padding: 5px;
+  /* background-color: transparent; */
+  color: black;
+  border: 1px solid black;
+  width: 80px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  padding: 5px;
+  background-color: #282c34;
+  color: antiquewhite;
+}
+
+input[type="text"] {
+  width: 30%;
+  min-width: 170px;
+  outline: none;
+  font-size: medium;
+  font-weight: 500;
+  padding: 5px;
+}
+
+@media screen and (max-width: 915px) {
+  .movie {
+    max-width: 33%;
+  }
+}
+
+@media screen and (max-width: 652px) {
+  .movie {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .movie {
+    max-width: 100%;
+  }
+}
